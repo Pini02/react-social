@@ -1,0 +1,39 @@
+{ 
+    "comments":[
+        {
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+        },
+        {
+        "id": 2,
+        "body": "some comment",
+        "postId": 1
+        },
+        {
+        "id": 3,
+        "body": "another comment",
+        "postId": 2
+        },
+        {
+        "id": 4,
+        "body": "yet another comment",
+        "postId": 3
+        },
+        {
+        "id": 5,
+        "body": "comment for post 4",
+        "postId": 4
+        },
+        {
+        "id": 6,
+        "body": "comment for post 5",
+        "postId": 5
+        },
+        {
+        "id": 7,
+        "body": "second comment on post 5",
+        "postId": 5
+        }
+  ]
+}
