@@ -3,6 +3,7 @@ import {
   RouterProvider,
 } from "react-router";
 import { HomePage } from './components/Homepage/Homepage'
+import { PostDetails } from "./PostDetails/PostDetails";
 
 
 import React from "react";
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <div><HomePage /></div>,
+    
+  },
+  {
+    path: "/:id",
+    element: <div><PostDetails /></div>
   },
 ]);
 

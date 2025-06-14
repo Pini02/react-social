@@ -1,6 +1,8 @@
-import axios from "axios"
+import axios, { type AxiosResponse } from "axios"
 import {type AxiosInstance} from 'axios'
 import { useState,useEffect } from "react"
+import { Posts } from "../Posts/Posts"
+import {type PostType } from "../../types/post"
 
 const API_URL : string = import.meta.env.VITE_URL_API as string
 
@@ -12,23 +14,17 @@ const instance : AxiosInstance = axios.create({
 
 
 export function HomePage(){
-    const [posts,setPosts] = useState<object[]>([])
+    const [posts,setPosts] = useState<PostType[]>([])
 
     async function fetch():Promise<void>{
-        const response = await axios(`${API_URL}db`)
-        console.log(response.data.posts)
-        setPosts([...response.data.posts])
+        const response : AxiosResponse  = await axios(`${API_URL}db`)
+        const result : PostType[] = response.data.posts
+        setPosts(result)
     }
 
     useEffect(()=>{fetch()},[])
 
     return( <div>
-        <ul>
-            {posts.map((post)=><li key={post.id}>
-                <h1>post.id</h1>
-                <p>post.title</p>
-            </li>)}
-        </ul>
-        
-        </div>)
+                <Posts posts={posts} />
+            </div>)
 }
