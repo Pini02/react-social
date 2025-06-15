@@ -1,18 +1,19 @@
-import type { CommentListProps } from './Comment'
 
 
 type PostType = {
     id: number,
     title : string,
-    comments : CommentListProps[]
 }
 
 export  type PostListProps = {
-                posts : PostType[]
+                posts : PostType[],
+                handleDelete: (id:number) => Promise<void>
             }
 
 export  type PostProps = {
                 post:PostType,
+                isDetails : boolean,
+                handleDelete: (id:number) => Promise<void>
             }
 
 export {type PostType}

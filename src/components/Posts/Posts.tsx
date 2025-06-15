@@ -1,20 +1,19 @@
 import {Post} from '../Post/Post'
-
 import type { PostListProps } from '../../types/post'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
 
 
-
-
-export function Posts({posts} : PostListProps){
+export function Posts({posts,handleDelete} : PostListProps){
     return (
         <>
-            <ul>
+            <List>
                 {posts.map((post)=>
-                    <li key={post.id}>
-                        <Post post={post}/>
-                    </li>
+                    <ListItem key={post.id}>
+                        <Post post={post} isDetails={false} handleDelete={handleDelete}/>
+                    </ListItem>
                 )}
-            </ul>
+            </List>
             
         </>
     )

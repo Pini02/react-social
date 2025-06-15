@@ -1,30 +1,22 @@
-import axios, { type AxiosResponse } from "axios"
-import {type AxiosInstance} from 'axios'
-import { useState,useEffect } from "react"
+import { useEffect } from "react"
 import { Posts } from "../Posts/Posts"
-import {type PostType } from "../../types/post"
+import { usePosts } from "../../hooks/post"
 
-const API_URL : string = import.meta.env.VITE_URL_API as string
 
-const instance : AxiosInstance = axios.create({
-    baseURL : API_URL,
-    timeout : 5000,
-    headers : {'content-type':'application/json'}
-})
 
 
 export function HomePage(){
-    const [posts,setPosts] = useState<PostType[]>([])
+    const posts = usePosts((state) => state.posts)
+    const setPosts = usePosts((state) => state.setPosts)
+    const deletePost = usePosts((state)=> state.deletePost)
+  useEffect(() => {
+    setPosts()
+  }, [])
+    
+    
 
-    async function fetch():Promise<void>{
-        const response : AxiosResponse  = await axios(`${API_URL}db`)
-        const result : PostType[] = response.data.posts
-        setPosts(result)
-    }
-
-    useEffect(()=>{fetch()},[])
 
     return( <div>
-                <Posts posts={posts} />
+                <Posts posts={usePosts.getState().posts} handleDelete={deletePost} />
             </div>)
 }

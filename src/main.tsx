@@ -3,7 +3,7 @@ import {
   RouterProvider,
 } from "react-router";
 import { HomePage } from './components/Homepage/Homepage'
-import { PostDetails } from "./PostDetails/PostDetails";
+import { PostDetails } from "./components/PostDetails/PostDetails";
 
 
 import React from "react";
