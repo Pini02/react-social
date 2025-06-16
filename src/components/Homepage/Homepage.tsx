@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { Posts } from "../Posts/Posts"
 import { usePosts } from "../../hooks/post"
 import styles from "./Homepage.module.css"
-import Loader from "../Loader/Loader"
 
 export function HomePage(){
     const posts = usePosts((state) => state.posts)
