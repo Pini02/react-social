@@ -4,10 +4,9 @@ import {
 } from "react-router";
 import { HomePage } from './components/Homepage/Homepage'
 import { PostDetails } from "./components/PostDetails/PostDetails";
-
-
 import React from "react";
 import ReactDOM from "react-dom/client";
+import './index.css'
 
 
 const router = createBrowserRouter([

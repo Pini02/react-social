@@ -4,6 +4,7 @@ import { Button } from "@mui/material"
 import i18n from "../../i18n/i18n"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router"
+import styles from "./Post.module.css"
 
 
 
@@ -18,9 +19,10 @@ export function Post({post, isDetails,handleDelete}:PostProps ){
     }
     return(
         <div>
-            <h2>{post.title}</h2>
+            <div className={styles.Post}>
+            <h2>{post.title}</h2> {isDetails && <Button onClick={()=>redirectHome(post.id)}>🗑️</Button>}
+            </div>
             {!isDetails && <Link to={`/post/${post.id}`}>{t('Commenti-p')}</Link>}
-            {isDetails && <Button onClick={()=>redirectHome(post.id)}>🗑️</Button>}
         
         </div>
     )
