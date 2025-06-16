@@ -2,13 +2,14 @@ import { useParams } from "react-router"
 import { Comments } from "../Comments/Comments"
 import { useEffect } from "react"
 import { Post } from "../Post/Post"
-import { usePost } from "../../hooks/post"
 import { useComments } from "../../hooks/comment"
+import { usePosts, usePost } from "../../hooks/post"
 
 
 
 export function PostDetails(){
     const  {id} = useParams()
+    const handleDelete = usePosts((state)=>state.deletePost)
     let idNumber : number
     try{
         idNumber = Number(id)
@@ -27,7 +28,7 @@ export function PostDetails(){
 
     return(
         <>
-            <Post post={post} isDetails={true}/>
+            <Post post={post} isDetails={true} handleDelete={handleDelete}/>
             <Comments comments={comments} />
         </>
     )

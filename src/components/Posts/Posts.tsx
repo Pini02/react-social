@@ -4,13 +4,13 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 
 
-export function Posts({posts,handleDelete} : PostListProps){
+export function Posts({posts} : PostListProps){
     return (
         <>
             <List>
                 {posts.map((post)=>
                     <ListItem key={post.id}>
-                        <Post post={post} isDetails={false} handleDelete={handleDelete}/>
+                        <Post post={post} isDetails={false}/>
                     </ListItem>
                 )}
             </List>
